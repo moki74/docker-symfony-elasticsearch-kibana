@@ -1,17 +1,15 @@
-docker-symfony
-==============
+# docker-symfony
 
 [![Build Status](https://secure.travis-ci.org/eko/docker-symfony.png?branch=master)](http://travis-ci.org/eko/docker-symfony)
 
-
-This is a complete stack for running Symfony 4 (latest version: Flex) into Docker containers using docker-compose tool.
+This is a complete stack for running Symfony 4 (latest version: Flex , with xdebug) into Docker containers using docker-compose tool.
 
 # Installation
 
 First, clone this repository:
 
 ```bash
-$ git clone https://github.com/eko/docker-symfony.git
+$ git clone https://github.com/moki74/docker-symfony-elasticsearch-kibana.git
 ```
 
 Next, put your Symfony application into `symfony` folder and do not forget to add `symfony.localhost` in your `/etc/hosts` file.
@@ -37,12 +35,12 @@ $ docker-compose build
 
 Here are the `docker-compose` built images:
 
-* `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
-* `php`: This is the PHP-FPM container including the application volume mounted on,
-* `nginx`: This is the Nginx webserver container in which php volumes are mounted too,
-* `elasticsearch`: This is the Elasticsearch server used to store our web server and application logs,
-* `logstash`: This is the Logstash tool from Elastic Stack that allows to read logs and send them into our Elasticsearch server,
-* `kibana`: This is the Kibana UI that is used to render logs and create beautiful dashboards. 
+- `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
+- `php`: This is the PHP-FPM container including the application volume mounted on with xdebug,
+- `nginx`: This is the Nginx webserver container in which php volumes are mounted too,
+- `elasticsearch`: This is the Elasticsearch server used to store our web server and application logs,
+- `logstash`: This is the Logstash tool from Elastic Stack that allows to read logs and send them into our Elasticsearch server,
+- `kibana`: This is the Kibana UI that is used to render logs and create beautiful dashboards.
 
 This results in the following running containers:
 
@@ -62,8 +60,8 @@ php-fpm                          php-fpm7 -F                      Up      0.0.0.
 
 You can access Nginx and Symfony application logs in the following directories on your host machine:
 
-* `logs/nginx`
-* `logs/symfony`
+- `logs/nginx`
+- `logs/symfony`
 
 # Use Kibana!
 
